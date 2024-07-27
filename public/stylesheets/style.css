@@ -1,0 +1,26 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('https://previews.123rf.com/images/alexlmx/alexlmx1802/alexlmx180200594/96385556-concepto-de-sistema-bancario-en-venezuela-representaci%C3%B3n-3d-aislada-sobre-fondo-blanco.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 50px;
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 20px;
+}
+

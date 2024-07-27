@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuarios</title>
+  <link rel='stylesheet' href='/stylesheets/styles.css' />
+</head>
+<body>
+  <h1>Lista de Usuarios</h1>
+  <ul>
+    <% usuarios.forEach(usuario => { %>
+      <li>
+        <strong>ID:</strong> <%= usuario.id %> <br>
+        <strong>Nombre:</strong> <%= usuario.nombre %> <br>
+        <strong>Contraseña:</strong> <%= usuario.contraseña %><br>
+        <strong>rol:</strong> <%= usuario.rol %>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Cuentas</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #007BFF;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Cuentas</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Número de Cuenta</th>
+        <th>Nombre del Banco</th>
+        <th>Monto del Préstamo</th>
+        <th>Duración del Préstamo (meses)</th>
+        <th>Nombre del Prestatario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% accounts.forEach(account => { %>
+        <tr>
+          <td><%= account.id %></td>
+          <td><%= account.numeroCuenta %></td>
+          <td><%= account.nombreBanco %></td>
+          <td><%= account.montoPrestamo %></td>
+          <td><%= account.duracionPrestamoMeses %></td>
+          <td><%= account.nombrePrestatario %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
