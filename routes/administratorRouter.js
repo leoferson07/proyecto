@@ -5,8 +5,8 @@ const administrators = require('../controladores/administrator')
 router.get('/', async (req, res) => {
     try {
       const result = await administrators.mostrar();
-      //res.render('accounts', { accounts: result });
-      res.send(result);
+      res.render('administrators', { administrators: result });
+      //res.send(result);
     } catch (error) {
       res.status(500).send(error.message);
     }
