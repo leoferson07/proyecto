@@ -9,6 +9,8 @@ const miembrosModels = require('./models/cooperativesModels');
 const cooperativeModels = require('./models/miembrosModels');
 const usersStateModels = require('./models/userStateModels');
 const adminitratorModels = require('./models/administratorModels');
+const creditosModels = require('./models/creditHistory');
+
 
 const sequelize = new Sequelize(
    //?`postgres://${DB_USERNAME}:${DB_PASSWORD}@localhost:5432/${DB_NAME}`,{logging:false}
@@ -32,6 +34,7 @@ const Miembros = miembrosModels(sequelize);
 const cooperative = cooperativeModels(sequelize);
 const userState = usersStateModels(sequelize);
 const administrator = adminitratorModels(sequelize);
+const creditos = creditosModels(sequelize);
 
 cooperative.hasMany(Miembros, { foreignKey: 'cooperativaId' })
 Miembros.belongsTo(cooperative, { foreignKey: 'cooperativaId' })
@@ -39,7 +42,7 @@ Miembros.belongsTo(cooperative, { foreignKey: 'cooperativaId' })
 
 module.exports = {
     sequelize, User, Account, Saving, Miembros, cooperative, userState,
-    administrator
+    administrator, creditos
 };
 
 

@@ -16,12 +16,14 @@ router.get('/', async (req, res) => {
     try {
         const {id, nombre, email, password, role} = req.body;
         const newAdmin = await administrators.crear({
-            id, id, nombre, email, password, role
+            id, nombre, email, password, role
         });
        res.status(200).send(newAdmin);
     } catch (error) {
         res.status(404).send(error)
     }
   });
+
+
 
   module.exports = router;

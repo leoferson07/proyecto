@@ -14,7 +14,7 @@ var cooperative = require('./routes/cooperatives')
 var login = require('./routes/auth');
 var userState = require('./routes/userState');
 var admin = require('./routes/administratorRouter');
-
+var credit = require('./routes/creditRoutes');
 
 var app = express();
 
@@ -39,7 +39,7 @@ app.use('/savings', savingsAccountsRouter);
 app.use('/admin', admin);
 app.use('/cooperatives', cooperative);
 app.use('/state', userState);
-
+app.use('/credit', credit)
 app.use('/cooperatives', cooperative)
 app.use('/login', login)
 
