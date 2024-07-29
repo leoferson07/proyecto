@@ -33,11 +33,4 @@ class HistorialDeCreditos {
      }
    };
  }
- 
- 
- 
- 
- 
- 
- 
  module.exports = new HistorialDeCreditos();

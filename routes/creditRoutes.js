@@ -5,8 +5,8 @@ const creditos = require('../controladores/credit.C');
 router.get('/', async (req, res) => {
     try {
       const result = await creditos.mostrar();
-      //res.render('administrators', { administrators: result });
-      res.send(result);
+      res.render('creditos', { creditos: result });
+     //res.send(result);
     } catch (error) {
       res.status(500).send(error.message);
     }
