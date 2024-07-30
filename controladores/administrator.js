@@ -1,25 +1,38 @@
 const {administrator} = require('../db');
-
+const bcrypt = require('bcryptjs')
 class Administrator {
-   async mostrar () {
+  async mostrar () {
     try {
-        const administrators = await administrator.findAll();
-        return administrators;
+      const administrators = await administrator.findAll();
+      return administrators;
     } catch (error) {
-        throw error;
+      throw error;
     }
-   };
+  };
 
-   async crear(admin){
+  async crear(admin) {
     try {
+        // Encripta la contraseña antes de guardar el administrador
+        const hashedPassword = await bcrypt.hash(admin.password, 10);
+        admin.password = hashedPassword;
+
         const newAdmin = await administrator.create(admin);
         return newAdmin;
     } catch (error) {
         throw error;
-      }
-   };
+    }
+   }
 
-   async editar(id, newAdmin) {
+   async findOne(query) {
+    try {
+        const admin = await administrator.findOne({ where: query });
+        return admin;
+    } catch (error) {
+        throw error;
+    }
+   }
+
+  async editar(id, newAdmin) {
     try {
       const admin = await administrator.findByPk(id);
       if (admin) {
@@ -47,11 +60,4 @@ class Administrator {
     }
   };
 }
-
-
-
-
-
-
-
 module.exports = new Administrator();
