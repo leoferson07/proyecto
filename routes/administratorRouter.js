@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 const administrators = require('../controladores/administrator');
 const jwt = require('jsonwebtoken');
-const { route } = require('./administratorRouter');
-
 
 
   router.post("/",  async (req, res)=>{
@@ -41,6 +39,19 @@ router.get('/', async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+router.put('/:id', async (req, res) => {
+  const id = req.params.id;
+  const newAdmin = req.body;
+
+  try {
+    const result = await accounts.editar(id, newAdmin);
+    res.send(result);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
+
 
 router.delete('/:id', async (req, res) => {
   const id = req.params.id;

@@ -1,5 +1,8 @@
 const {administrator} = require('../db');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+
+
+
 class Administrator {
   async mostrar () {
     try {
