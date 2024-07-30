@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const administrators = require('../controladores/administrator');
 const jwt = require('jsonwebtoken');
+const { route } = require('./administratorRouter');
 
 
 
@@ -19,7 +20,7 @@ const jwt = require('jsonwebtoken');
 
   router.post('/login', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email } = req.body;
         const admin = await administrators.findOne({ email: email });
 
         if (!admin) {
@@ -41,8 +42,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
 
-
-
+  try {
+    await administrators.eliminar(id);
+    res.send({ message: 'administrador eliminado' });
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
 
   module.exports = router;
