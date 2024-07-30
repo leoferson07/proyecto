@@ -24,4 +24,15 @@ router.post("/", authenticate, authorizeAdmin, async (req, res) => {
     res.status(404).send(error);
   }
 });
+
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await creditos.eliminar(id);
+    res.send({ message: 'credito eliminado' });
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
   module.exports = router;
